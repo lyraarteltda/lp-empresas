@@ -16,9 +16,30 @@
 <meta property="og:title" content="Maestros da IA para Empresas">
 <meta property="og:description" content="Implementação, consultoria e treinamento em IA para operações de alto faturamento. 50+ implementações enterprise · 40% de redução média de custo.">
 <meta property="og:url" content="https://empresas.maestrosdaia.com/">
+<meta property="og:image" content="https://empresas.maestrosdaia.com/og-empresas.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Maestros da IA para Empresas — implementação, consultoria e treinamento em IA">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Maestros da IA para Empresas">
 <meta name="twitter:description" content="Implementação, consultoria e treinamento em IA para operações que faturam acima de R$ 10 milhões por ano.">
+<meta name="twitter:image" content="https://empresas.maestrosdaia.com/og-empresas.jpg">
+
+<!-- PostHog — projeto 389613, escopado por $host = empresas.maestrosdaia.com -->
+<script>
+  !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug getPageViewId captureTraceFeedback captureTraceMetric".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+  posthog.init('phc_nXXrUUfCy4yYeA4hkPzaU8E4MqU2JhrYsaQoaNzRV4YK', {
+    api_host: 'https://us.i.posthog.com',
+    ui_host: 'https://us.posthog.com',
+    autocapture: true,
+    capture_pageview: true,
+    capture_pageleave: true,
+    person_profiles: 'identified_only',
+    respect_dnt: true,
+    disable_session_recording: true,
+    session_recording: { maskAllInputs: true }
+  });
+</script>
 
 <!-- Favicon: wordmark M em gradiente dourado (on-brand) -->
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Cdefs%3E%3ClinearGradient%20id='b'%20x1='0'%20y1='0'%20x2='1'%20y2='1'%3E%3Cstop%20offset='0'%20stop-color='%231a1c22'/%3E%3Cstop%20offset='1'%20stop-color='%230c0d11'/%3E%3C/linearGradient%3E%3ClinearGradient%20id='g'%20x1='0'%20y1='0'%20x2='1'%20y2='1'%3E%3Cstop%20offset='0'%20stop-color='%23e9d29c'/%3E%3Cstop%20offset='1'%20stop-color='%23d8b46a'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20x='1.5'%20y='1.5'%20width='61'%20height='61'%20rx='14'%20fill='url(%23b)'%20stroke='%23a67c34'%20stroke-opacity='.5'%20stroke-width='1.5'/%3E%3Ctext%20x='32'%20y='34'%20font-family='Georgia,Palatino,serif'%20font-size='40'%20font-weight='700'%20text-anchor='middle'%20dominant-baseline='central'%20fill='url(%23g)'%3EM%3C/text%3E%3C/svg%3E">
@@ -225,12 +246,14 @@ section.block{padding:clamp(64px,9vw,120px) 0;position:relative}
 .price .val{font-family:var(--display);font-weight:700;font-size:clamp(22px,2.8vw,30px);color:var(--gold-2);letter-spacing:-.01em;line-height:1.05}
 .price .note{font-size:12.5px;color:var(--txt-3);margin-top:2px}
 
+/* Layout interno de 2 colunas (Implementação + Palestra) */
+.card .grid2{display:grid;grid-template-columns:1.55fr .95fr;gap:clamp(24px,3vw,40px);align-items:stretch}
+.card .aside{display:flex;flex-direction:column;justify-content:center;gap:20px;
+  padding:clamp(22px,2.4vw,30px);background:rgba(8,9,12,.4);border:1px solid var(--line);border-radius:14px}
+.card .aside .price .val{font-size:clamp(26px,3.2vw,36px)}
+
 /* Featured card (Implementação) */
 .card.featured{background:linear-gradient(155deg,rgba(216,180,106,.05),rgba(17,19,25,.4) 42%),var(--bg-2);border-color:var(--gold-line)}
-.card.featured .grid2{display:grid;grid-template-columns:1.55fr .95fr;gap:clamp(24px,3vw,40px);align-items:stretch}
-.card.featured .aside{display:flex;flex-direction:column;justify-content:center;gap:20px;
-  padding:clamp(22px,2.4vw,30px);background:rgba(8,9,12,.4);border:1px solid var(--line);border-radius:14px}
-.card.featured .aside .price .val{font-size:clamp(26px,3.2vw,36px)}
 .card.featured .foot{margin-top:0;padding-top:0;border-top:0}
 .pretag{display:inline-flex;align-items:center;gap:9px;font-size:12.5px;font-weight:600;letter-spacing:.01em;
   color:var(--gold-2);background:var(--gold-soft);border:1px solid var(--gold-line);padding:8px 14px;border-radius:999px;line-height:1.3}
@@ -239,14 +262,8 @@ section.block{padding:clamp(64px,9vw,120px) 0;position:relative}
 .ribbon{position:absolute;top:0;right:0;font-family:var(--display);font-weight:600;font-size:11px;letter-spacing:.14em;text-transform:uppercase;
   color:var(--gold-deep);background:linear-gradient(150deg,var(--gold-2),var(--gold));padding:7px 16px;border-bottom-left-radius:14px}
 .mini-reassure{font-size:12.5px;color:var(--txt-3);text-align:center;line-height:1.4}
-
-.formats .row3{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2vw,22px)}
-.formats .row3 .card{display:flex;flex-direction:column}
-.formats .row3 .card ul{align-content:start}
-.formats .row3 .card .foot{margin-top:auto}
 @media(max-width:900px){
-  .card.featured .grid2{grid-template-columns:1fr}
-  .formats .row3{grid-template-columns:1fr}
+  .card .grid2{grid-template-columns:1fr}
 }
 
 /* ============ FOUNDERS ============ */
@@ -328,6 +345,23 @@ footer{border-top:1px solid var(--line);padding:clamp(40px,5vw,56px) 0;backgroun
 .pane.active{display:block;animation:paneIn .35s var(--ease)}
 @keyframes paneIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 
+/* ---- Mini-questionário do gate ---- */
+.step-count{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--txt-3);font-weight:600;text-align:center;margin:0 0 22px}
+.field{margin-top:4px;text-align:left}
+.field label{display:block;font-family:var(--display);font-weight:600;font-size:clamp(18px,2.8vw,22px);color:var(--txt);line-height:1.28;letter-spacing:-.015em;margin-bottom:16px}
+.field input,.field textarea{width:100%;background:var(--bg-1);border:1px solid var(--line-2);border-radius:12px;
+  color:var(--txt);font-family:var(--sans);font-size:15px;line-height:1.5;padding:14px 16px;-webkit-appearance:none;
+  transition:border-color .25s var(--ease),box-shadow .25s var(--ease)}
+.field input::placeholder,.field textarea::placeholder{color:var(--txt-3)}
+.field input:focus,.field textarea:focus{border-color:var(--gold-line);box-shadow:0 0 0 3px rgba(216,180,106,.22)}
+.field textarea{resize:vertical;min-height:118px}
+.field input[aria-invalid="true"],.field textarea[aria-invalid="true"]{border-color:var(--warn);box-shadow:0 0 0 3px rgba(224,133,90,.16)}
+.field-err{min-height:18px;margin-top:9px;font-size:13px;color:var(--warn);line-height:1.4}
+.wa-note{margin-top:16px;font-size:14px;color:var(--txt-2);line-height:1.55;text-align:left}
+.wa-preview{margin-top:14px;text-align:left;background:var(--bg-1);border:1px solid var(--line);border-radius:12px;
+  padding:14px 16px;font-size:13.5px;color:var(--txt-2);line-height:1.6;white-space:pre-wrap;word-break:break-word;
+  max-height:180px;overflow:auto}
+
 /* ============ REDUCED MOTION ============ */
 @media(prefers-reduced-motion:reduce){
   *{scroll-behavior:auto!important}
@@ -386,18 +420,12 @@ footer{border-top:1px solid var(--line);padding:clamp(40px,5vw,56px) 0;backgroun
             Ver os formatos para empresas
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
-          <a href="https://wa.me/5511995631610" target="_blank" rel="noopener" class="textlink">
-            ou fale direto com o time
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
-          </a>
         </div>
       </div>
       <aside class="hero-index" data-reveal data-d="2" aria-label="Índice de formatos para empresas">
         <span class="hi-label">Formatos para empresas</span>
         <a class="hi-row" href="#f-implementacao"><span class="hi-name"><span class="tag" aria-hidden="true"></span>Implementação de IA</span><span class="hi-desc">Execução de IA dentro da sua operação</span></a>
         <a class="hi-row" href="#f-palestra"><span class="hi-name">Palestra ou Treinamento</span><span class="hi-desc">Capacitação prática do seu time</span></a>
-        <a class="hi-row" href="#f-mentoria"><span class="hi-name">Diagnóstico Executivo 1:1</span><span class="hi-desc">Sessão privada de 2h com os fundadores</span></a>
-        <a class="hi-row" href="#f-clube"><span class="hi-name">Clube de Negócios AI</span><span class="hi-desc">A sala onde se decide o que implementar</span></a>
       </aside>
     </div>
   </div>
@@ -459,7 +487,7 @@ footer{border-top:1px solid var(--line);padding:clamp(40px,5vw,56px) 0;backgroun
               <span class="val">R$ 50.000</span>
               <span class="note">por implementação</span>
             </div>
-            <button type="button" class="btn btn-primary btn-block cta" data-destino="https://implementacao.maestrosdaia.com/" data-label="Implementação de IA">
+            <button type="button" class="btn btn-primary btn-block cta">
               Solicitar proposta de implementação
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
             </button>
@@ -468,75 +496,32 @@ footer{border-top:1px solid var(--line);padding:clamp(40px,5vw,56px) 0;backgroun
         </div>
       </article>
 
-      <!-- CARDS 2 / 3 / 4 -->
-      <div class="row3">
-        <!-- CARD 2 -->
-        <article class="card" id="f-palestra" data-reveal>
-          <div class="top"><h3>Palestra Online ou Treinamento In Company</h3></div>
-          <p class="promise">Seu time saindo da teoria para o uso real de IA no dia a dia da empresa.</p>
-          <ul>
-            <li>Palestra online ou treinamento presencial (in company) — no formato certo para a sua equipe</li>
-            <li>IA aplicada ao seu negócio: ferramentas e casos reais, não conceitos genéricos</li>
-            <li>Capacitação executiva e prática, da liderança ao time de operação</li>
-            <li>Conteúdo adaptado ao seu setor e aos seus processos</li>
-          </ul>
-          <div class="foot">
+      <!-- CARD 2 — Palestra / Treinamento -->
+      <article class="card" id="f-palestra" data-reveal data-d="1">
+        <div class="grid2">
+          <div>
+            <div class="top"><h3>Palestra Online ou Treinamento In Company</h3></div>
+            <p class="promise">Seu time saindo da teoria para o uso real de IA no dia a dia da empresa.</p>
+            <ul>
+              <li>Palestra online ou treinamento presencial (in company) — no formato certo para a sua equipe</li>
+              <li>IA aplicada ao seu negócio: ferramentas e casos reais, não conceitos genéricos</li>
+              <li>Capacitação executiva e prática, da liderança ao time de operação</li>
+              <li>Conteúdo adaptado ao seu setor e aos seus processos</li>
+            </ul>
+          </div>
+          <div class="aside">
             <div class="price">
               <span class="pre">Investimento</span>
               <span class="val">R$ 30.000</span>
             </div>
+            <a class="btn btn-ghost btn-block" href="mailto:contato@lyraarte.com" aria-label="Enviar e-mail para contato@lyraarte.com">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+              contato@lyraarte.com
+            </a>
+            <p class="mini-reassure">Presencial (in company) ou online · conteúdo sob medida</p>
           </div>
-          <a class="btn btn-ghost btn-block" href="mailto:contato@lyraarte.com" style="margin-top:16px" aria-label="Enviar e-mail para contato@lyraarte.com">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
-            contato@lyraarte.com
-          </a>
-        </article>
-
-        <!-- CARD 3 -->
-        <article class="card" id="f-mentoria" data-reveal data-d="1">
-          <div class="top"><h3>Diagnóstico Executivo 1:1</h3></div>
-          <p class="promise">Uma sessão privada de 2 horas com os Maestros fundadores, focada exclusivamente na sua operação.</p>
-          <ul>
-            <li>Sessão <b>privada</b> de 2 horas — só a sua empresa e os Maestros fundadores, Arthur e Lyria</li>
-            <li>Diagnóstico dos gargalos e das maiores oportunidades de IA na sua operação</li>
-            <li>Plano de prioridades <b>documentado ao final</b>: o que implementar, em que ordem e por quê</li>
-            <li>Diferente do Clube (coletivo, sem entregável): aqui o foco é 100% a sua operação</li>
-          </ul>
-          <div class="foot">
-            <div class="price">
-              <span class="pre">Investimento</span>
-              <span class="val">R$ 6.000</span>
-            </div>
-          </div>
-          <a class="btn btn-ghost btn-block" href="https://pay.onprofit.com.br/wANZGTre?off=n2dDuc" target="_blank" rel="noopener" style="margin-top:16px">
-            Agendar meu diagnóstico
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </a>
-        </article>
-
-        <!-- CARD 4 -->
-        <article class="card" id="f-clube" data-reveal data-d="2">
-          <div class="top"><h3>Clube de Negócios AI</h3></div>
-          <p class="promise">O ambiente onde empresários de alto nível descobrem, com os Maestros, onde a IA gera mais alavancagem no negócio.</p>
-          <ul>
-            <li>Grupo Business no WhatsApp com empresários de alto nível — holdings, hospitais, clínicas, escritórios de advocacia, agências e operações físicas de grande porte</li>
-            <li>Hotseat Estratégico mensal: diagnóstico ao vivo dos Maestros fundadores e dos outros membros, sem hora para acabar</li>
-            <li>Acesso direto aos Maestros: número pessoal dos fundadores</li>
-            <li>Não é um curso — é a sala onde se decide o que implementar, em que ordem e a que custo real</li>
-          </ul>
-          <div class="foot">
-            <div class="price">
-              <span class="pre">Investimento</span>
-              <span class="val">R$ 3.000</span>
-              <span class="note">compra única · vagas limitadas</span>
-            </div>
-          </div>
-          <a class="btn btn-ghost btn-block" href="https://pay.onprofit.com.br/TiqsBtxZ?off=ByNrxf" target="_blank" rel="noopener" style="margin-top:16px">
-            Aplicar para uma vaga
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </a>
-        </article>
-      </div>
+        </div>
+      </article>
     </div>
   </div>
 </section>
@@ -645,14 +630,94 @@ footer{border-top:1px solid var(--line);padding:clamp(40px,5vw,56px) 0;backgroun
       <p class="ctx">Uma pergunta rápida para levar você ao formato certo.</p>
       <h3 id="modalTitle">Sua empresa fatura mais de R$ 10 milhões por ano?</h3>
       <div class="actions two">
-        <a class="btn btn-primary" id="gateYes" href="#" rel="noopener">Sim</a>
+        <button type="button" class="btn btn-primary" id="gateYes">Sim</button>
         <button type="button" class="btn btn-ghost" id="gateNo">Ainda não</button>
+      </div>
+    </div>
+
+    <!-- PANE Q1: nome da empresa -->
+    <div class="pane" id="paneQ1">
+      <button type="button" class="modal-back" data-back="gate">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+        Voltar
+      </button>
+      <p class="step-count">Passo 1 de 3</p>
+      <div class="field">
+        <label for="qEmpresa">Qual é o nome da sua empresa?</label>
+        <input type="text" id="qEmpresa" name="empresa" autocomplete="organization" placeholder="Ex.: Renova Energia" aria-describedby="errEmpresa">
+        <p class="field-err" id="errEmpresa" aria-live="polite"></p>
+      </div>
+      <div class="actions">
+        <button type="button" class="btn btn-primary" id="q1Next">
+          Continuar
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- PANE Q2: site da empresa -->
+    <div class="pane" id="paneQ2">
+      <button type="button" class="modal-back" data-back="q1">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+        Voltar
+      </button>
+      <p class="step-count">Passo 2 de 3</p>
+      <div class="field">
+        <label for="qSite">Qual é o site da sua empresa?</label>
+        <input type="text" id="qSite" name="site" inputmode="url" autocomplete="url" placeholder="empresa.com.br" aria-describedby="errSite">
+        <p class="field-err" id="errSite" aria-live="polite"></p>
+      </div>
+      <div class="actions">
+        <button type="button" class="btn btn-primary" id="q2Next">
+          Continuar
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- PANE Q3: o que precisa implementar -->
+    <div class="pane" id="paneQ3">
+      <button type="button" class="modal-back" data-back="q2">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+        Voltar
+      </button>
+      <p class="step-count">Passo 3 de 3</p>
+      <div class="field">
+        <label for="qNecessidade">O que, na sua operação, você precisa que a IA resolva primeiro?</label>
+        <textarea id="qNecessidade" name="necessidade" rows="4" placeholder="Ex.: reduzir o custo do time de atendimento, automatizar a triagem de propostas comerciais, acelerar o fechamento fiscal..." aria-describedby="errNec"></textarea>
+        <p class="field-err" id="errNec" aria-live="polite"></p>
+      </div>
+      <div class="actions">
+        <button type="button" class="btn btn-primary" id="q3Next">
+          Ver minha mensagem
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- PANE Q4: ação — WhatsApp com a mensagem pronta -->
+    <div class="pane" id="paneQ4">
+      <button type="button" class="modal-back" data-back="q3">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+        Voltar
+      </button>
+      <div class="icn" aria-hidden="true" style="margin-top:8px">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+      </div>
+      <h3>Tudo pronto para falar com a Lyria</h3>
+      <p class="wa-note">Sua mensagem já vai preenchida com o que você respondeu — é só tocar no botão e enviar.</p>
+      <div class="wa-preview" id="waPreview" aria-live="polite"></div>
+      <div class="actions">
+        <a class="btn btn-primary" id="waFinal" href="#" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          Falar com a Lyria no WhatsApp
+        </a>
       </div>
     </div>
 
     <!-- PANE B: soft popup -->
     <div class="pane" id="paneSoft">
-      <button type="button" class="modal-back" id="softBack">
+      <button type="button" class="modal-back" data-back="gate">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
         Voltar
       </button>
@@ -680,32 +745,47 @@ footer{border-top:1px solid var(--line);padding:clamp(40px,5vw,56px) 0;backgroun
   var d=document;
   var overlay=d.getElementById("overlay");
   var modal=d.getElementById("modal");
-  var paneGate=d.getElementById("paneGate");
-  var paneSoft=d.getElementById("paneSoft");
-  var gateYes=d.getElementById("gateYes");
-  var gateNo=d.getElementById("gateNo");
-  var softBack=d.getElementById("softBack");
   var closeBtn=d.getElementById("modalClose");
   var lastFocus=null;
 
+  // Base do WhatsApp (número já publicado na página)
+  var WA_BASE="https://wa.me/5511995631610?text=";
+
+  var panes={
+    gate:d.getElementById("paneGate"),
+    q1:d.getElementById("paneQ1"),
+    q2:d.getElementById("paneQ2"),
+    q3:d.getElementById("paneQ3"),
+    q4:d.getElementById("paneQ4"),
+    soft:d.getElementById("paneSoft")
+  };
+
+  var inpEmpresa=d.getElementById("qEmpresa");
+  var inpSite=d.getElementById("qSite");
+  var inpNec=d.getElementById("qNecessidade");
+  var errEmpresa=d.getElementById("errEmpresa");
+  var errSite=d.getElementById("errSite");
+  var errNec=d.getElementById("errNec");
+  var waFinal=d.getElementById("waFinal");
+  var waPreview=d.getElementById("waPreview");
+
   function showPane(which){
-    paneGate.classList.toggle("active", which==="gate");
-    paneSoft.classList.toggle("active", which==="soft");
+    Object.keys(panes).forEach(function(k){
+      if(panes[k]) panes[k].classList.toggle("active", k===which);
+    });
+    var target=panes[which];
+    if(!target) return;
+    // foco automático: campo do passo, senão o botão principal
+    var focusEl=target.querySelector("input,textarea")||target.querySelector(".btn-primary")||target.querySelector("a[href],button");
+    setTimeout(function(){ if(focusEl && focusEl.focus){ focusEl.focus(); } }, 60);
   }
 
-  function openGate(destino){
-    // "Sim" é uma âncora real → destino verificável mesmo sem JS extra
-    var isInternal = destino.indexOf("implementacao.maestrosdaia.com")>-1;
-    gateYes.setAttribute("href", destino);
-    if(isInternal){ gateYes.removeAttribute("target"); }
-    else { gateYes.setAttribute("target","_blank"); }
-    showPane("gate");
+  function openGate(){
     lastFocus=d.activeElement;
+    showPane("gate"); // ao reabrir, o fluxo sempre volta ao passo do gate
     overlay.classList.add("open");
     overlay.setAttribute("aria-hidden","false");
     d.body.style.overflow="hidden";
-    // foco no primeiro botão de ação
-    setTimeout(function(){ gateYes.focus(); }, 60);
   }
 
   function closeModal(){
@@ -717,30 +797,73 @@ footer{border-top:1px solid var(--line);padding:clamp(40px,5vw,56px) 0;backgroun
 
   // Abre o gate a partir de qualquer CTA de serviço
   d.querySelectorAll(".cta").forEach(function(btn){
-    btn.addEventListener("click", function(e){
-      e.preventDefault();
-      openGate(btn.getAttribute("data-destino"));
-    });
+    btn.addEventListener("click", function(e){ e.preventDefault(); openGate(); });
   });
 
-  // "Sim" → segue o link e fecha o overlay (mantém a LP quando abre em nova aba)
-  gateYes.addEventListener("click", function(){
-    setTimeout(closeModal, 40);
+  // Respostas do gate
+  d.getElementById("gateYes").addEventListener("click", function(){ showPane("q1"); });
+  d.getElementById("gateNo").addEventListener("click", function(){ showPane("soft"); });
+
+  // Botões "Voltar" (data-back → id do pane de destino)
+  modal.querySelectorAll("[data-back]").forEach(function(b){
+    b.addEventListener("click", function(){ showPane(b.getAttribute("data-back")); });
   });
 
-  gateNo.addEventListener("click", function(){ showPane("soft"); softBack.focus(); });
-  softBack.addEventListener("click", function(){ showPane("gate"); gateYes.focus(); });
+  // Validação sóbria inline
+  function setErr(input,errEl,msg){
+    if(msg){ errEl.textContent=msg; input.setAttribute("aria-invalid","true"); }
+    else { errEl.textContent=""; input.removeAttribute("aria-invalid"); }
+  }
+  function reqName(){
+    if(!inpEmpresa.value.trim()){ setErr(inpEmpresa,errEmpresa,"Informe o nome da empresa para continuar."); return false; }
+    setErr(inpEmpresa,errEmpresa,""); return true;
+  }
+  function reqSite(){
+    if(!inpSite.value.trim()){ setErr(inpSite,errSite,"Informe o site da empresa para continuar."); return false; }
+    setErr(inpSite,errSite,""); return true;
+  }
+  function reqNec(){
+    if(!inpNec.value.trim()){ setErr(inpNec,errNec,"Conte, em uma linha, o que a IA precisa resolver primeiro."); return false; }
+    setErr(inpNec,errNec,""); return true;
+  }
+  // Limpa o erro assim que o campo recebe conteúdo
+  inpEmpresa.addEventListener("input", function(){ if(inpEmpresa.value.trim()){ setErr(inpEmpresa,errEmpresa,""); } });
+  inpSite.addEventListener("input", function(){ if(inpSite.value.trim()){ setErr(inpSite,errSite,""); } });
+  inpNec.addEventListener("input", function(){ if(inpNec.value.trim()){ setErr(inpNec,errNec,""); } });
+
+  // Normaliza o site (aceita empresa.com.br, www., https:// — não rejeita)
+  function normalizeSite(raw){ return raw.trim().replace(/\s+/g,""); }
+
+  function buildFinal(){
+    var nome=inpEmpresa.value.trim();
+    var site=normalizeSite(inpSite.value);
+    var nec=inpNec.value.trim();
+    var msg="Olá! Vim pela página Maestros da IA para Empresas.\n\nEmpresa: "+nome+"\nSite: "+site+"\nO que preciso implementar: "+nec;
+    waFinal.setAttribute("href", WA_BASE+encodeURIComponent(msg));
+    waPreview.textContent=msg;
+    showPane("q4");
+  }
+
+  // Avanço por clique
+  d.getElementById("q1Next").addEventListener("click", function(){ if(reqName()){ showPane("q2"); } });
+  d.getElementById("q2Next").addEventListener("click", function(){ if(reqSite()){ showPane("q3"); } });
+  d.getElementById("q3Next").addEventListener("click", function(){ if(reqNec()){ buildFinal(); } });
+
+  // Enter avança o passo (Shift+Enter = nova linha no textarea)
+  inpEmpresa.addEventListener("keydown", function(e){ if(e.key==="Enter"){ e.preventDefault(); if(reqName()){ showPane("q2"); } } });
+  inpSite.addEventListener("keydown", function(e){ if(e.key==="Enter"){ e.preventDefault(); if(reqSite()){ showPane("q3"); } } });
+  inpNec.addEventListener("keydown", function(e){ if(e.key==="Enter" && !e.shiftKey){ e.preventDefault(); if(reqNec()){ buildFinal(); } } });
+
   closeBtn.addEventListener("click", closeModal);
-
   // Fecha ao clicar no overlay (fora do modal)
   overlay.addEventListener("click", function(e){ if(e.target===overlay){ closeModal(); } });
 
-  // ESC fecha · trap de foco com Tab
+  // ESC fecha · trap de foco com Tab (inclui os campos novos)
   d.addEventListener("keydown", function(e){
     if(!overlay.classList.contains("open")) return;
     if(e.key==="Escape"){ closeModal(); return; }
     if(e.key==="Tab"){
-      var f=modal.querySelectorAll('a[href],button:not([disabled])');
+      var f=modal.querySelectorAll('a[href],button:not([disabled]),input:not([disabled]),textarea:not([disabled])');
       var vis=[];
       f.forEach(function(el){ if(el.offsetParent!==null) vis.push(el); });
       if(!vis.length) return;
