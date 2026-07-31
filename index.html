@@ -270,9 +270,9 @@ section.block{padding:clamp(64px,9vw,120px) 0;position:relative}
 .founders{display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,2vw,22px)}
 .founder{display:flex;gap:18px;align-items:flex-start;background:var(--bg-2);border:1px solid var(--line);border-radius:var(--radius);padding:clamp(22px,2.6vw,30px);transition:.3s var(--ease)}
 .founder:hover{border-color:var(--gold-line);background:var(--bg-3)}
-.mono{flex:0 0 auto;width:58px;height:58px;border-radius:15px;display:grid;place-items:center;
-  font-family:var(--display);font-weight:700;font-size:21px;color:#1c1508;
-  background:linear-gradient(150deg,var(--gold-2),var(--gold-deep));box-shadow:0 8px 22px -10px rgba(216,180,106,.5),inset 0 1px 0 rgba(255,255,255,.4)}
+.founder-photo{flex:0 0 auto;width:64px;height:64px;border-radius:16px;object-fit:cover;object-position:center;
+  border:1px solid var(--gold-line);background:var(--bg-3);
+  box-shadow:0 8px 22px -12px rgba(216,180,106,.45),0 0 0 1px rgba(216,180,106,.12),inset 0 1px 0 rgba(255,255,255,.06)}
 .founder h4{font-size:18px;font-weight:600;color:var(--txt);letter-spacing:-.01em}
 .founder .role{font-size:12.5px;color:var(--gold);font-weight:600;letter-spacing:.03em;margin-top:2px}
 .founder p{font-size:14px;color:var(--txt-2);margin-top:10px;line-height:1.55}
@@ -361,6 +361,22 @@ footer{border-top:1px solid var(--line);padding:clamp(40px,5vw,56px) 0;backgroun
 .wa-preview{margin-top:14px;text-align:left;background:var(--bg-1);border:1px solid var(--line);border-radius:12px;
   padding:14px 16px;font-size:13.5px;color:var(--txt-2);line-height:1.6;white-space:pre-wrap;word-break:break-word;
   max-height:180px;overflow:auto}
+
+/* ---- Escolha de formato (radio acessível estilo botão) ---- */
+.field.compact label{font-size:15px;font-weight:600;letter-spacing:0;line-height:1.4;margin-bottom:10px}
+.choice{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.choice-opt{position:relative;display:block}
+.choice-opt input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:pointer}
+.choice-opt span{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;text-align:center;
+  min-height:54px;padding:12px 14px;border-radius:12px;border:1px solid var(--line-2);background:var(--bg-1);
+  color:var(--txt-2);font-family:var(--display);font-weight:600;font-size:15px;
+  transition:border-color .25s var(--ease),background .25s var(--ease),color .25s var(--ease)}
+.choice-opt span small{font-size:11.5px;font-weight:500;color:var(--txt-3)}
+.choice-opt:hover span{border-color:var(--gold-line);color:var(--gold-2)}
+.choice-opt input:checked+span{border-color:var(--gold-line);background:var(--gold-soft);color:var(--gold-2)}
+.choice-opt input:checked+span small{color:var(--gold)}
+.choice-opt input:focus-visible+span{outline:2px solid var(--gold);outline-offset:2px}
+@media(max-width:420px){.choice{grid-template-columns:1fr}}
 
 /* ============ REDUCED MOTION ============ */
 @media(prefers-reduced-motion:reduce){
@@ -511,14 +527,14 @@ footer{border-top:1px solid var(--line);padding:clamp(40px,5vw,56px) 0;backgroun
           </div>
           <div class="aside">
             <div class="price">
-              <span class="pre">Investimento</span>
+              <span class="pre">Investimento · a partir de</span>
               <span class="val">R$ 30.000</span>
             </div>
-            <a class="btn btn-ghost btn-block" href="mailto:contato@lyraarte.com" aria-label="Enviar e-mail para contato@lyraarte.com">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
-              contato@lyraarte.com
-            </a>
-            <p class="mini-reassure">Presencial (in company) ou online · conteúdo sob medida</p>
+            <button type="button" class="btn btn-ghost btn-block cta-training">
+              Solicitar proposta de treinamento
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+            <p class="mini-reassure">Valor de referência do formato online — presencial (in company) varia conforme participantes, local e tema.</p>
           </div>
         </div>
       </article>
@@ -535,19 +551,19 @@ footer{border-top:1px solid var(--line);padding:clamp(40px,5vw,56px) 0;backgroun
     </div>
     <div class="founders">
       <article class="founder" data-reveal>
-        <span class="mono" aria-hidden="true">AE</span>
+        <img class="founder-photo" src="arthur-endo.jpg" alt="Arthur Endo, co-fundador dos Maestros da IA" width="64" height="64" loading="lazy" decoding="async">
         <div>
           <h4>Arthur Endo</h4>
-          <span class="role">Co-fundador</span>
-          <p>Pioneiro em IA aplicada. Traduz IA de ponta em resultado prático para a operação.</p>
+          <span class="role">Co-founder &amp; COO</span>
+          <p>Pioneiro em IA aplicada a negócios. Doutor Honoris Causa e especialista no desenvolvimento de sistemas autônomos para médias e grandes empresas. Criador do único curso de violão 5 estrelas entre os top 5 da Hotmart, com 20.000+ alunos e 6.000+ afiliados — escalado inteiramente com IA.</p>
         </div>
       </article>
       <article class="founder" data-reveal data-d="1">
-        <span class="mono" aria-hidden="true">LZ</span>
+        <img class="founder-photo" src="lyria-zoccal.jpg" alt="Lyria Zoccal, co-fundadora dos Maestros da IA" width="64" height="64" loading="lazy" decoding="async">
         <div>
           <h4>Lyria Zoccal</h4>
-          <span class="role">Co-fundadora</span>
-          <p>Consultora enterprise, especialista em IA aplicada a processos corporativos e ERP/SAP. Conecta a IA à realidade dos sistemas que a sua empresa já roda.</p>
+          <span class="role">Co-founder &amp; CEO da Maestria e Lyra Academy</span>
+          <p>Estudou administração de empresas, com passagem por grandes empresas de SaaS como GoLive e TOTVS. CEO de duas empresas — Maestria e Lyra Academy — que juntas faturam mais de R$ 5M/ano. Especialista em soluções de IA para produção de conteúdo, bots de WhatsApp e agentes autônomos.</p>
         </div>
       </article>
     </div>
@@ -565,15 +581,11 @@ footer{border-top:1px solid var(--line);padding:clamp(40px,5vw,56px) 0;backgroun
     <div class="faq">
       <details data-reveal>
         <summary>Por que existe o pré-requisito de R$ 10 milhões de faturamento?<span class="ico" aria-hidden="true"></span></summary>
-        <div class="ans">Porque implementar IA dentro de uma operação enterprise exige escala, complexidade e orçamento que só fazem sentido acima desse patamar. O corte protege o seu investimento: garante que o trabalho gere retorno real no tamanho da sua empresa — e não uma solução grande demais para o momento errado.</div>
+        <div class="ans">Porque procuramos parceiros de longo prazo. O nosso trabalho não termina quando o primeiro agente entra no ar — o objetivo é que a sua empresa veja o resultado desse primeiro sistema e queira levar a IA para muitas outras frentes da operação. É aí que está o maior potencial de lucro de uma IA bem implementada: no efeito composto de vários sistemas rodando juntos, não em uma automação isolada. Uma operação nesse patamar já tem os processos, o volume e a margem para sustentar essa jornada — e é isso que faz a parceria compensar para os dois lados.</div>
       </details>
       <details data-reveal>
         <summary>E se a minha empresa ainda não fatura isso?<span class="ico" aria-hidden="true"></span></summary>
         <div class="ans">Você continua muito bem-vindo. O ponto de entrada certo é a <a href="https://comunidade.maestrosdaia.com/" target="_blank" rel="noopener">Comunidade Maestros da IA (R$ 97)</a>: é onde você aprende a aplicar IA de forma estruturada, no seu ritmo, e constrói a base para chegar aos formatos enterprise quando fizer sentido.</div>
-      </details>
-      <details data-reveal>
-        <summary>Preciso saber programar para implementar IA na minha empresa?<span class="ico" aria-hidden="true"></span></summary>
-        <div class="ans">Não. Nenhum dos fundadores programa. O jogo é orquestrar IA, não escrever código — e é exatamente isso que entregamos e ensinamos: a sua operação passa a usar IA sem depender de um time técnico para cada passo.</div>
       </details>
     </div>
   </div>
@@ -695,9 +707,9 @@ footer{border-top:1px solid var(--line);padding:clamp(40px,5vw,56px) 0;backgroun
       </div>
     </div>
 
-    <!-- PANE Q4: ação — WhatsApp com a mensagem pronta -->
+    <!-- PANE Q4: ação — WhatsApp com a mensagem pronta (compartilhado pelos dois fluxos) -->
     <div class="pane" id="paneQ4">
-      <button type="button" class="modal-back" data-back="q3">
+      <button type="button" class="modal-back" id="q4Back" data-back="q3">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
         Voltar
       </button>
@@ -712,6 +724,96 @@ footer{border-top:1px solid var(--line);padding:clamp(40px,5vw,56px) 0;backgroun
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
           Falar com a Lyria no WhatsApp
         </a>
+      </div>
+    </div>
+
+    <!-- ===== FLUXO DE TREINAMENTO (sem gate de R$ 10M) ===== -->
+    <!-- PANE T1: nome da empresa -->
+    <div class="pane" id="paneT1">
+      <p class="step-count">Passo 1 de 4</p>
+      <div class="field">
+        <label for="tEmpresa">Qual é o nome da sua empresa?</label>
+        <input type="text" id="tEmpresa" name="t-empresa" autocomplete="organization" placeholder="Ex.: Renova Energia" aria-describedby="errTEmpresa">
+        <p class="field-err" id="errTEmpresa" aria-live="polite"></p>
+      </div>
+      <div class="actions">
+        <button type="button" class="btn btn-primary" id="t1Next">
+          Continuar
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- PANE T2: site da empresa -->
+    <div class="pane" id="paneT2">
+      <button type="button" class="modal-back" data-back="t1">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+        Voltar
+      </button>
+      <p class="step-count">Passo 2 de 4</p>
+      <div class="field">
+        <label for="tSite">Qual é o site da sua empresa?</label>
+        <input type="text" id="tSite" name="t-site" inputmode="url" autocomplete="url" placeholder="empresa.com.br" aria-describedby="errTSite">
+        <p class="field-err" id="errTSite" aria-live="polite"></p>
+      </div>
+      <div class="actions">
+        <button type="button" class="btn btn-primary" id="t2Next">
+          Continuar
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- PANE T3: formato + nº de participantes -->
+    <div class="pane" id="paneT3">
+      <button type="button" class="modal-back" data-back="t2">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+        Voltar
+      </button>
+      <p class="step-count">Passo 3 de 4</p>
+      <div class="field">
+        <label id="lblFormato">Como você prefere o treinamento?</label>
+        <div class="choice" role="radiogroup" aria-labelledby="lblFormato">
+          <label class="choice-opt">
+            <input type="radio" name="t-formato" value="Online" checked>
+            <span>Online</span>
+          </label>
+          <label class="choice-opt">
+            <input type="radio" name="t-formato" value="Presencial (in company)">
+            <span>Presencial <small>(in company)</small></span>
+          </label>
+        </div>
+      </div>
+      <div class="field compact" style="margin-top:22px">
+        <label for="tPessoas">Quantas pessoas participariam?</label>
+        <input type="number" id="tPessoas" name="t-pessoas" inputmode="numeric" min="1" step="1" placeholder="Ex.: 25" aria-describedby="errTPessoas">
+        <p class="field-err" id="errTPessoas" aria-live="polite"></p>
+      </div>
+      <div class="actions">
+        <button type="button" class="btn btn-primary" id="t3Next">
+          Continuar
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- PANE T4: tema/objetivo do treinamento -->
+    <div class="pane" id="paneT4">
+      <button type="button" class="modal-back" data-back="t3">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+        Voltar
+      </button>
+      <p class="step-count">Passo 4 de 4</p>
+      <div class="field">
+        <label for="tTema">Qual é o tema ou objetivo do treinamento?</label>
+        <textarea id="tTema" name="t-tema" rows="4" placeholder="Ex.: o que você quer que o time saia sabendo fazer — automatizar o atendimento, criar conteúdo com IA, usar agentes no dia a dia..." aria-describedby="errTTema"></textarea>
+        <p class="field-err" id="errTTema" aria-live="polite"></p>
+      </div>
+      <div class="actions">
+        <button type="button" class="btn btn-primary" id="t4Next">
+          Ver minha mensagem
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
       </div>
     </div>
 
@@ -757,17 +859,33 @@ footer{border-top:1px solid var(--line);padding:clamp(40px,5vw,56px) 0;backgroun
     q2:d.getElementById("paneQ2"),
     q3:d.getElementById("paneQ3"),
     q4:d.getElementById("paneQ4"),
+    t1:d.getElementById("paneT1"),
+    t2:d.getElementById("paneT2"),
+    t3:d.getElementById("paneT3"),
+    t4:d.getElementById("paneT4"),
     soft:d.getElementById("paneSoft")
   };
 
+  // Fluxo de implementação
   var inpEmpresa=d.getElementById("qEmpresa");
   var inpSite=d.getElementById("qSite");
   var inpNec=d.getElementById("qNecessidade");
   var errEmpresa=d.getElementById("errEmpresa");
   var errSite=d.getElementById("errSite");
   var errNec=d.getElementById("errNec");
+  // Fluxo de treinamento
+  var tEmpresa=d.getElementById("tEmpresa");
+  var tSite=d.getElementById("tSite");
+  var tPessoas=d.getElementById("tPessoas");
+  var tTema=d.getElementById("tTema");
+  var errTEmpresa=d.getElementById("errTEmpresa");
+  var errTSite=d.getElementById("errTSite");
+  var errTPessoas=d.getElementById("errTPessoas");
+  var errTTema=d.getElementById("errTTema");
+  // Compartilhado (pane de ação/preview do WhatsApp)
   var waFinal=d.getElementById("waFinal");
   var waPreview=d.getElementById("waPreview");
+  var q4Back=d.getElementById("q4Back");
 
   function showPane(which){
     Object.keys(panes).forEach(function(k){
@@ -780,9 +898,9 @@ footer{border-top:1px solid var(--line);padding:clamp(40px,5vw,56px) 0;backgroun
     setTimeout(function(){ if(focusEl && focusEl.focus){ focusEl.focus(); } }, 60);
   }
 
-  function openGate(){
+  function openModal(startPane){
     lastFocus=d.activeElement;
-    showPane("gate"); // ao reabrir, o fluxo sempre volta ao passo do gate
+    showPane(startPane); // ao reabrir, o fluxo sempre volta ao passo inicial do CTA acionado
     overlay.classList.add("open");
     overlay.setAttribute("aria-hidden","false");
     d.body.style.overflow="hidden";
@@ -795,9 +913,13 @@ footer{border-top:1px solid var(--line);padding:clamp(40px,5vw,56px) 0;backgroun
     if(lastFocus && lastFocus.focus){ lastFocus.focus(); }
   }
 
-  // Abre o gate a partir de qualquer CTA de serviço
+  // CTA de implementação → abre o gate de R$ 10M
   d.querySelectorAll(".cta").forEach(function(btn){
-    btn.addEventListener("click", function(e){ e.preventDefault(); openGate(); });
+    btn.addEventListener("click", function(e){ e.preventDefault(); openModal("gate"); });
+  });
+  // CTA de treinamento → entra direto no passo 1 (sem gate de faturamento)
+  d.querySelectorAll(".cta-training").forEach(function(btn){
+    btn.addEventListener("click", function(e){ e.preventDefault(); openModal("t1"); });
   });
 
   // Respostas do gate
@@ -841,6 +963,7 @@ footer{border-top:1px solid var(--line);padding:clamp(40px,5vw,56px) 0;backgroun
     var msg="Olá! Vim pela página Maestros da IA para Empresas.\n\nEmpresa: "+nome+"\nSite: "+site+"\nO que preciso implementar: "+nec;
     waFinal.setAttribute("href", WA_BASE+encodeURIComponent(msg));
     waPreview.textContent=msg;
+    if(q4Back) q4Back.setAttribute("data-back","q3");
     showPane("q4");
   }
 
@@ -853,6 +976,59 @@ footer{border-top:1px solid var(--line);padding:clamp(40px,5vw,56px) 0;backgroun
   inpEmpresa.addEventListener("keydown", function(e){ if(e.key==="Enter"){ e.preventDefault(); if(reqName()){ showPane("q2"); } } });
   inpSite.addEventListener("keydown", function(e){ if(e.key==="Enter"){ e.preventDefault(); if(reqSite()){ showPane("q3"); } } });
   inpNec.addEventListener("keydown", function(e){ if(e.key==="Enter" && !e.shiftKey){ e.preventDefault(); if(reqNec()){ buildFinal(); } } });
+
+  // ===== Fluxo de treinamento (mesma mecânica, sem gate) =====
+  function reqTName(){
+    if(!tEmpresa.value.trim()){ setErr(tEmpresa,errTEmpresa,"Informe o nome da empresa para continuar."); return false; }
+    setErr(tEmpresa,errTEmpresa,""); return true;
+  }
+  function reqTSite(){
+    if(!tSite.value.trim()){ setErr(tSite,errTSite,"Informe o site da empresa para continuar."); return false; }
+    setErr(tSite,errTSite,""); return true;
+  }
+  function reqTPessoas(){
+    var v=tPessoas.value.trim();
+    if(!v){ setErr(tPessoas,errTPessoas,"Informe quantas pessoas participariam."); return false; }
+    var n=parseInt(v,10);
+    if(isNaN(n)||n<1){ setErr(tPessoas,errTPessoas,"Informe um número válido de participantes."); return false; }
+    setErr(tPessoas,errTPessoas,""); return true;
+  }
+  function reqTTema(){
+    if(!tTema.value.trim()){ setErr(tTema,errTTema,"Conte, em uma linha, o objetivo do treinamento."); return false; }
+    setErr(tTema,errTTema,""); return true;
+  }
+  tEmpresa.addEventListener("input", function(){ if(tEmpresa.value.trim()){ setErr(tEmpresa,errTEmpresa,""); } });
+  tSite.addEventListener("input", function(){ if(tSite.value.trim()){ setErr(tSite,errTSite,""); } });
+  tPessoas.addEventListener("input", function(){ if(tPessoas.value.trim()){ setErr(tPessoas,errTPessoas,""); } });
+  tTema.addEventListener("input", function(){ if(tTema.value.trim()){ setErr(tTema,errTTema,""); } });
+
+  function selectedFormato(){
+    var r=modal.querySelector('input[name="t-formato"]:checked');
+    return r?r.value:"Online";
+  }
+
+  function buildFinalTraining(){
+    var nome=tEmpresa.value.trim();
+    var site=normalizeSite(tSite.value);
+    var formato=selectedFormato();
+    var pessoas=tPessoas.value.trim();
+    var tema=tTema.value.trim();
+    var msg="Olá! Vim pela página Maestros da IA para Empresas — quero um treinamento para o meu time.\n\nEmpresa: "+nome+"\nSite: "+site+"\nFormato: "+formato+"\nParticipantes: "+pessoas+"\nTema/objetivo: "+tema;
+    waFinal.setAttribute("href", WA_BASE+encodeURIComponent(msg));
+    waPreview.textContent=msg;
+    if(q4Back) q4Back.setAttribute("data-back","t4");
+    showPane("q4");
+  }
+
+  d.getElementById("t1Next").addEventListener("click", function(){ if(reqTName()){ showPane("t2"); } });
+  d.getElementById("t2Next").addEventListener("click", function(){ if(reqTSite()){ showPane("t3"); } });
+  d.getElementById("t3Next").addEventListener("click", function(){ if(reqTPessoas()){ showPane("t4"); } });
+  d.getElementById("t4Next").addEventListener("click", function(){ if(reqTTema()){ buildFinalTraining(); } });
+
+  tEmpresa.addEventListener("keydown", function(e){ if(e.key==="Enter"){ e.preventDefault(); if(reqTName()){ showPane("t2"); } } });
+  tSite.addEventListener("keydown", function(e){ if(e.key==="Enter"){ e.preventDefault(); if(reqTSite()){ showPane("t3"); } } });
+  tPessoas.addEventListener("keydown", function(e){ if(e.key==="Enter"){ e.preventDefault(); if(reqTPessoas()){ showPane("t4"); } } });
+  tTema.addEventListener("keydown", function(e){ if(e.key==="Enter" && !e.shiftKey){ e.preventDefault(); if(reqTTema()){ buildFinalTraining(); } } });
 
   closeBtn.addEventListener("click", closeModal);
   // Fecha ao clicar no overlay (fora do modal)
@@ -920,9 +1096,8 @@ footer{border-top:1px solid var(--line);padding:clamp(40px,5vw,56px) 0;backgroun
   "@context":"https://schema.org",
   "@type":"FAQPage",
   "mainEntity":[
-    {"@type":"Question","name":"Por que existe o pré-requisito de R$ 10 milhões de faturamento?","acceptedAnswer":{"@type":"Answer","text":"Porque implementar IA dentro de uma operação enterprise exige escala, complexidade e orçamento que só fazem sentido acima desse patamar. O corte protege o seu investimento: garante que o trabalho gere retorno real no tamanho da sua empresa — e não uma solução grande demais para o momento errado."}},
-    {"@type":"Question","name":"E se a minha empresa ainda não fatura isso?","acceptedAnswer":{"@type":"Answer","text":"Você continua muito bem-vindo. O ponto de entrada certo é a Comunidade Maestros da IA (R$ 97): é onde você aprende a aplicar IA de forma estruturada, no seu ritmo, e constrói a base para chegar aos formatos enterprise quando fizer sentido."}},
-    {"@type":"Question","name":"Preciso saber programar para implementar IA na minha empresa?","acceptedAnswer":{"@type":"Answer","text":"Não. Nenhum dos fundadores programa. O jogo é orquestrar IA, não escrever código — e é exatamente isso que entregamos e ensinamos: a sua operação passa a usar IA sem depender de um time técnico para cada passo."}}
+    {"@type":"Question","name":"Por que existe o pré-requisito de R$ 10 milhões de faturamento?","acceptedAnswer":{"@type":"Answer","text":"Porque procuramos parceiros de longo prazo. O nosso trabalho não termina quando o primeiro agente entra no ar — o objetivo é que a sua empresa veja o resultado desse primeiro sistema e queira levar a IA para muitas outras frentes da operação. É aí que está o maior potencial de lucro de uma IA bem implementada: no efeito composto de vários sistemas rodando juntos, não em uma automação isolada. Uma operação nesse patamar já tem os processos, o volume e a margem para sustentar essa jornada — e é isso que faz a parceria compensar para os dois lados."}},
+    {"@type":"Question","name":"E se a minha empresa ainda não fatura isso?","acceptedAnswer":{"@type":"Answer","text":"Você continua muito bem-vindo. O ponto de entrada certo é a Comunidade Maestros da IA (R$ 97): é onde você aprende a aplicar IA de forma estruturada, no seu ritmo, e constrói a base para chegar aos formatos enterprise quando fizer sentido."}}
   ]
 }
 </script>
