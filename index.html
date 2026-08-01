@@ -647,13 +647,42 @@ footer{border-top:1px solid var(--line);padding:clamp(40px,5vw,56px) 0;backgroun
       </div>
     </div>
 
-    <!-- PANE Q1: nome da empresa -->
-    <div class="pane" id="paneQ1">
+    <!-- PANE Q0: preferência de contato (WhatsApp sem custo × diagnóstico ao vivo R$ 1.000) -->
+    <div class="pane" id="paneQ0">
       <button type="button" class="modal-back" data-back="gate">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
         Voltar
       </button>
-      <p class="step-count">Passo 1 de 3</p>
+      <p class="step-count">Passo 1 de 4</p>
+      <div class="field">
+        <label id="lblContato">Como você prefere seguir a partir daqui?</label>
+        <div class="choice" role="radiogroup" aria-labelledby="lblContato">
+          <label class="choice-opt">
+            <input type="radio" name="q-contato" value="Resolver tudo por WhatsApp" checked>
+            <span>Pelo WhatsApp <small>Sem custo</small></span>
+          </label>
+          <label class="choice-opt">
+            <input type="radio" name="q-contato" value="Reunião de diagnóstico ao vivo (R$ 1.000)">
+            <span>Conversa ao vivo <small>R$ 1.000</small></span>
+          </label>
+        </div>
+        <p class="wa-note" style="margin-top:16px">Pelo <b>WhatsApp</b> você tira todas as dúvidas e recebe a proposta, sem custo. Se preferir ir mais fundo, o Arthur e a Lyria conduzem uma <b>sessão de diagnóstico ao vivo (R$ 1.000)</b>: olham a sua operação e entregam, por escrito, onde a IA corta custo primeiro. Fechou o projeto? Os R$ 1.000 são <b>100% abatidos</b>.</p>
+      </div>
+      <div class="actions">
+        <button type="button" class="btn btn-primary" id="q0Next">
+          Continuar
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- PANE Q1: nome da empresa -->
+    <div class="pane" id="paneQ1">
+      <button type="button" class="modal-back" data-back="q0">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+        Voltar
+      </button>
+      <p class="step-count">Passo 2 de 4</p>
       <div class="field">
         <label for="qEmpresa">Qual é o nome da sua empresa?</label>
         <input type="text" id="qEmpresa" name="empresa" autocomplete="organization" placeholder="Ex.: Renova Energia" aria-describedby="errEmpresa">
@@ -673,7 +702,7 @@ footer{border-top:1px solid var(--line);padding:clamp(40px,5vw,56px) 0;backgroun
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
         Voltar
       </button>
-      <p class="step-count">Passo 2 de 3</p>
+      <p class="step-count">Passo 3 de 4</p>
       <div class="field">
         <label for="qSite">Qual é o site da sua empresa?</label>
         <input type="text" id="qSite" name="site" inputmode="url" autocomplete="url" placeholder="empresa.com.br" aria-describedby="errSite">
@@ -693,7 +722,7 @@ footer{border-top:1px solid var(--line);padding:clamp(40px,5vw,56px) 0;backgroun
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
         Voltar
       </button>
-      <p class="step-count">Passo 3 de 3</p>
+      <p class="step-count">Passo 4 de 4</p>
       <div class="field">
         <label for="qNecessidade">O que, na sua operação, você precisa que a IA resolva primeiro?</label>
         <textarea id="qNecessidade" name="necessidade" rows="4" placeholder="Ex.: reduzir o custo do time de atendimento, automatizar a triagem de propostas comerciais, acelerar o fechamento fiscal..." aria-describedby="errNec"></textarea>
@@ -855,6 +884,7 @@ footer{border-top:1px solid var(--line);padding:clamp(40px,5vw,56px) 0;backgroun
 
   var panes={
     gate:d.getElementById("paneGate"),
+    q0:d.getElementById("paneQ0"),
     q1:d.getElementById("paneQ1"),
     q2:d.getElementById("paneQ2"),
     q3:d.getElementById("paneQ3"),
@@ -922,8 +952,8 @@ footer{border-top:1px solid var(--line);padding:clamp(40px,5vw,56px) 0;backgroun
     btn.addEventListener("click", function(e){ e.preventDefault(); openModal("t1"); });
   });
 
-  // Respostas do gate
-  d.getElementById("gateYes").addEventListener("click", function(){ showPane("q1"); });
+  // Respostas do gate → entra no passo 1 (preferência de contato)
+  d.getElementById("gateYes").addEventListener("click", function(){ showPane("q0"); });
   d.getElementById("gateNo").addEventListener("click", function(){ showPane("soft"); });
 
   // Botões "Voltar" (data-back → id do pane de destino)
@@ -956,11 +986,18 @@ footer{border-top:1px solid var(--line);padding:clamp(40px,5vw,56px) 0;backgroun
   // Normaliza o site (aceita empresa.com.br, www., https:// — não rejeita)
   function normalizeSite(raw){ return raw.trim().replace(/\s+/g,""); }
 
+  // Preferência de contato (passo 1 do fluxo de implementação) — sempre tem default marcado
+  function selectedContato(){
+    var r=modal.querySelector('input[name="q-contato"]:checked');
+    return r?r.value:"Resolver tudo por WhatsApp";
+  }
+
   function buildFinal(){
+    var contato=selectedContato();
     var nome=inpEmpresa.value.trim();
     var site=normalizeSite(inpSite.value);
     var nec=inpNec.value.trim();
-    var msg="Olá! Vim pela página Maestros da IA para Empresas.\n\nEmpresa: "+nome+"\nSite: "+site+"\nO que preciso implementar: "+nec;
+    var msg="Olá! Vim pela página Maestros da IA para Empresas.\n\nEmpresa: "+nome+"\nSite: "+site+"\nO que preciso implementar: "+nec+"\nPreferência de contato: "+contato;
     waFinal.setAttribute("href", WA_BASE+encodeURIComponent(msg));
     waPreview.textContent=msg;
     if(q4Back) q4Back.setAttribute("data-back","q3");
@@ -968,11 +1005,15 @@ footer{border-top:1px solid var(--line);padding:clamp(40px,5vw,56px) 0;backgroun
   }
 
   // Avanço por clique
+  d.getElementById("q0Next").addEventListener("click", function(){ showPane("q1"); });
   d.getElementById("q1Next").addEventListener("click", function(){ if(reqName()){ showPane("q2"); } });
   d.getElementById("q2Next").addEventListener("click", function(){ if(reqSite()){ showPane("q3"); } });
   d.getElementById("q3Next").addEventListener("click", function(){ if(reqNec()){ buildFinal(); } });
 
   // Enter avança o passo (Shift+Enter = nova linha no textarea)
+  d.querySelectorAll('input[name="q-contato"]').forEach(function(r){
+    r.addEventListener("keydown", function(e){ if(e.key==="Enter"){ e.preventDefault(); showPane("q1"); } });
+  });
   inpEmpresa.addEventListener("keydown", function(e){ if(e.key==="Enter"){ e.preventDefault(); if(reqName()){ showPane("q2"); } } });
   inpSite.addEventListener("keydown", function(e){ if(e.key==="Enter"){ e.preventDefault(); if(reqSite()){ showPane("q3"); } } });
   inpNec.addEventListener("keydown", function(e){ if(e.key==="Enter" && !e.shiftKey){ e.preventDefault(); if(reqNec()){ buildFinal(); } } });
