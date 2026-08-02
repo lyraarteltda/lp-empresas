@@ -378,6 +378,53 @@ footer{border-top:1px solid var(--line);padding:clamp(40px,5vw,56px) 0;backgroun
 .choice-opt input:focus-visible+span{outline:2px solid var(--gold);outline-offset:2px}
 @media(max-width:420px){.choice{grid-template-columns:1fr}}
 
+/* ---- Passo 1: comparativo de planos ✓/✗ (WhatsApp × Diagnóstico ao Vivo) ---- */
+.plan-intro{margin:0 0 18px;font-size:14.5px;color:var(--txt-2);line-height:1.55;text-align:left}
+.plans{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:stretch}
+.plan{position:relative;display:flex;flex-direction:column;background:var(--bg-1);border:1px solid var(--line-2);
+  border-radius:16px;padding:18px 15px 15px;transition:border-color .25s var(--ease),background .25s var(--ease)}
+.plan:hover{border-color:var(--gold-line)}
+.plan:not(.featured):has(.sr-radio:checked){border-color:var(--gold-line)}
+.plan:has(.sr-radio:focus-visible){outline:2px solid var(--gold);outline-offset:2px}
+.plan.featured{background:linear-gradient(160deg,rgba(216,180,106,.1),rgba(17,19,25,.35) 46%),var(--bg-2);
+  border-color:rgba(216,180,106,.55);box-shadow:0 20px 46px -24px rgba(216,180,106,.5)}
+.plan.featured:hover{border-color:var(--gold)}
+.plan-badge{position:absolute;top:-1px;right:-1px;font-family:var(--display);font-weight:600;font-size:10px;
+  letter-spacing:.13em;text-transform:uppercase;color:var(--gold-deep);
+  background:linear-gradient(150deg,var(--gold-2),var(--gold));padding:5px 12px;
+  border-bottom-left-radius:12px;border-top-right-radius:15px;box-shadow:0 4px 14px -4px rgba(216,180,106,.5)}
+.plan .sr-radio{position:absolute;width:1px;height:1px;min-height:0;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;background:transparent;box-shadow:none;pointer-events:none;-webkit-appearance:none;appearance:none}
+.plan-body{display:flex;flex-direction:column;flex:1 1 auto;cursor:pointer;text-align:left}
+.plan-head{display:flex;flex-direction:column;gap:7px;align-items:flex-start}
+.plan.featured .plan-head{padding-right:82px}
+.plan-name{font-family:var(--display);font-weight:600;font-size:16px;letter-spacing:-.01em;color:var(--txt);line-height:1.15}
+.plan-tag{display:inline-flex;font-size:10.5px;font-weight:600;letter-spacing:.02em;color:var(--txt-3);
+  background:var(--bg-3);border:1px solid var(--line);padding:3px 9px;border-radius:999px;line-height:1.35;white-space:nowrap}
+.plan-tag.gold{color:var(--gold-2);background:var(--gold-soft);border-color:var(--gold-line)}
+.plan-list{list-style:none;margin:15px 0 0;padding:0;display:grid;gap:9px;flex:1}
+.plan-list li{position:relative;padding-left:23px;font-size:13px;color:var(--txt-3);line-height:1.42}
+.plan-list li.yes{color:var(--txt)}
+.plan-list li::before{content:"";position:absolute;left:0;top:1px;width:16px;height:16px;background-repeat:no-repeat;background-position:center;background-size:contain}
+.plan-list li.yes::before{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238fbf8a' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E")}
+.plan-list li.no::before{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23726e66' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 6 6 18M6 6l12 12'/%3E%3C/svg%3E")}
+.plan-cta{margin-top:16px;width:100%;display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  font-family:var(--display);font-weight:600;font-size:13.5px;letter-spacing:-.005em;text-align:center;
+  border-radius:11px;border:1px solid transparent;min-height:46px;padding:11px 14px;cursor:pointer;
+  transition:transform .25s var(--ease),background .25s var(--ease),border-color .25s var(--ease),box-shadow .25s var(--ease)}
+.plan-cta svg{width:15px;height:15px;transition:transform .25s var(--ease);flex:0 0 auto}
+.plan-cta.ghost{background:var(--bg-2);color:var(--txt);border-color:var(--line-2)}
+.plan-cta.ghost:hover{border-color:var(--gold-line);color:var(--gold-2);background:var(--bg-3)}
+.plan-cta.ghost:hover svg{transform:translateX(3px)}
+.plan-cta.primary{background:linear-gradient(150deg,var(--gold-2),var(--gold));color:#1c1508}
+.plan-cta.primary:hover{transform:translateY(-2px);box-shadow:0 14px 30px -12px rgba(216,180,106,.55)}
+.plan-cta.primary:hover svg{transform:translateX(3px)}
+.plan-reinforce{margin:16px 0 0;font-size:13px;color:var(--txt-2);line-height:1.5;text-align:center}
+.plan-reinforce b{color:var(--gold-2);font-weight:600}
+@media(max-width:560px){
+  .plans{grid-template-columns:1fr;gap:14px}
+  .plan.featured{order:-1}
+}
+
 /* ============ REDUCED MOTION ============ */
 @media(prefers-reduced-motion:reduce){
   *{scroll-behavior:auto!important}
@@ -655,24 +702,57 @@ footer{border-top:1px solid var(--line);padding:clamp(40px,5vw,56px) 0;backgroun
       </button>
       <p class="step-count">Passo 1 de 4</p>
       <div class="field">
-        <label id="lblContato">Como você prefere seguir a partir daqui?</label>
-        <div class="choice" role="radiogroup" aria-labelledby="lblContato">
-          <label class="choice-opt">
-            <input type="radio" name="q-contato" value="Resolver tudo por WhatsApp" checked>
-            <span>Pelo WhatsApp <small>Sem custo</small></span>
-          </label>
-          <label class="choice-opt">
-            <input type="radio" name="q-contato" value="Reunião de diagnóstico ao vivo (R$ 1.000)">
-            <span>Conversa ao vivo <small>R$ 1.000</small></span>
-          </label>
+        <label id="lblContato">Qual nível de análise faz mais sentido para a sua empresa?</label>
+        <p class="plan-intro">Vou ser reto: os dois caminhos funcionam — a diferença é o quão fundo a gente vai na sua operação.</p>
+        <div class="plans" role="radiogroup" aria-labelledby="lblContato">
+
+          <!-- Card A — porta de entrada (WhatsApp, sem custo) -->
+          <div class="plan">
+            <input type="radio" class="sr-radio" id="planWhats" name="q-contato" value="Resolver tudo por WhatsApp" aria-label="Pelo WhatsApp — sem custo" checked>
+            <label class="plan-body" for="planWhats">
+              <span class="plan-head">
+                <span class="plan-name">Pelo WhatsApp</span>
+                <span class="plan-tag">Sem custo</span>
+              </span>
+              <ul class="plan-list">
+                <li class="yes">Tira todas as suas dúvidas</li>
+                <li class="yes">Recebe uma proposta</li>
+                <li class="no">Sem os fundadores ao vivo</li>
+                <li class="no">Sem análise da sua operação</li>
+                <li class="no">Sem o Mapa de Implementação</li>
+              </ul>
+            </label>
+            <button type="button" class="plan-cta ghost" data-goto="q1" data-radio="planWhats">
+              Começar pelo WhatsApp
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+          </div>
+
+          <!-- Card B — DESTAQUE / RECOMENDADO (Diagnóstico ao Vivo, R$1.000 100% abatível) -->
+          <div class="plan featured">
+            <span class="plan-badge">Recomendado</span>
+            <input type="radio" class="sr-radio" id="planDiag" name="q-contato" value="Reunião de diagnóstico ao vivo (R$ 1.000)" aria-label="Diagnóstico ao Vivo — R$ 1.000, 100% abatível. Recomendado">
+            <label class="plan-body" for="planDiag">
+              <span class="plan-head">
+                <span class="plan-name">Diagnóstico ao Vivo</span>
+                <span class="plan-tag gold">R$1.000 · 100% abatível</span>
+              </span>
+              <ul class="plan-list">
+                <li class="yes">Tudo do WhatsApp, e mais:</li>
+                <li class="yes">Sessão ao vivo com Arthur + Lyria</li>
+                <li class="yes">Análise profunda da sua operação</li>
+                <li class="yes">O Mapa de Implementação, por escrito</li>
+                <li class="yes">R$1.000 100% abatidos se fechar</li>
+              </ul>
+            </label>
+            <button type="button" class="plan-cta primary" data-goto="q1" data-radio="planDiag">
+              Quero o diagnóstico ao vivo
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+          </div>
+
         </div>
-        <p class="wa-note" style="margin-top:16px">Pelo <b>WhatsApp</b> você tira todas as dúvidas e recebe a proposta, sem custo. Se preferir ir mais fundo, o Arthur e a Lyria conduzem uma <b>sessão de diagnóstico ao vivo (R$ 1.000)</b>: olham a sua operação e entregam, por escrito, onde a IA corta custo primeiro. Fechou o projeto? Os R$ 1.000 são <b>100% abatidos</b>.</p>
-      </div>
-      <div class="actions">
-        <button type="button" class="btn btn-primary" id="q0Next">
-          Continuar
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </button>
+        <p class="plan-reinforce">Fechou o projeto? Os R$1.000 são <b>100% abatidos</b> — o único jeito de não valer a pena é não fazer.</p>
       </div>
     </div>
 
@@ -1005,7 +1085,15 @@ footer{border-top:1px solid var(--line);padding:clamp(40px,5vw,56px) 0;backgroun
   }
 
   // Avanço por clique
-  d.getElementById("q0Next").addEventListener("click", function(){ showPane("q1"); });
+  // Passo 1: cada botão de plano marca o radio do seu card e avança para o passo 2
+  d.querySelectorAll('#paneQ0 .plan-cta').forEach(function(btn){
+    btn.addEventListener("click", function(){
+      var id=btn.getAttribute("data-radio");
+      var r=id&&d.getElementById(id);
+      if(r){ r.checked=true; }
+      showPane(btn.getAttribute("data-goto")||"q1");
+    });
+  });
   d.getElementById("q1Next").addEventListener("click", function(){ if(reqName()){ showPane("q2"); } });
   d.getElementById("q2Next").addEventListener("click", function(){ if(reqSite()){ showPane("q3"); } });
   d.getElementById("q3Next").addEventListener("click", function(){ if(reqNec()){ buildFinal(); } });
